@@ -238,6 +238,7 @@ a
 	height: 400px
 	margin-bottom: 23px
 	overflow: hidden
+	+gpu
 	&:before, &:after
 		content: ""
 		position: absolute
@@ -436,6 +437,12 @@ a
 		+gpu
 		&:first-child
 			margin: 0
+		&:hover
+			span
+				opacity: 1 
+				+scale(1)
+			img
+				+scale(1.4)
 	span
 		position: absolute
 		top: 21px
@@ -449,13 +456,12 @@ a
 		font-size: 16px
 		font-weight: bold
 		color: #29282B 
+		opacity: 0 
+		+scale(.6)
+	span, img
 		+tr(all .2s linear)
 .cable__list
-	li
-		&:hover
-			span
-				background: rgba(255,255,255,1)
-				+scale(1.2)
+	
 .slider__provides
 	li
 		position: absolute
@@ -539,8 +545,10 @@ a
 	border-color: #f1f2f3
 	.title__link
 		background: #f1f2f3
-		i
-			+s(link-arrs-blue)
+		.title__arr-top
+			+s(link-arrs-blue-top)
+		.title__arr-down
+			+s(link-arrs-blue-down)
 	.title__in
 		color: $blue
 		a
@@ -551,16 +559,25 @@ a
 	width: 45px
 	height: 45px
 	background: #f3c853
-	i
-		position: absolute
-		top: 15px
-		left: 15px
-		+transform(rotate(0))
-		+tr(all .2s linear)
-		+s(link-arrs)
 	&:hover
-		i
-			+transform(rotate(180deg))
+		.title__arr-top
+			top: 10px
+			left: 27px
+		.title__arr-down
+			top: 27px
+			left: 10px
+.title__arr-top, .title__arr-down
+	position: absolute
+	+tr(all .1s linear)
+.title__arr-top
+	top: 15px
+	left: 22px
+	+s(link-arrs-top)
+.title__arr-down
+	top: 22px
+	left: 15px
+	+s(link-arrs-down)
+
 .title__in
 	display: table
 	padding-top: 12px
